@@ -6,7 +6,6 @@ public class Movie {
 
   private String _title;
   private Price _price;
-  //private int _priceCode;
 
   public Movie(String name, int priceCode) {
       _title = name;
@@ -36,25 +35,9 @@ public class Movie {
   public String getTitle (){
       return _title;
   }
-  
-  public double getCharge(int daysRented){
-    double thisAmount = 0;
-    switch (getPriceCode()) {
-      case Movie.REGULAR:
-        thisAmount += 2;
-        if (daysRented > 2)
-          thisAmount += (daysRented - 2) * 1.5;
-        break;
-      case Movie.NEW_RELEASE:
-        thisAmount += daysRented * 3;
-        break;
-      case Movie.CHILDRENS:
-        thisAmount += 1.5;
-        if (daysRented > 3)
-          thisAmount += (daysRented - 3) * 1.5;
-        break;
-    }
-    return thisAmount;
+
+  public double getCharge(int daysRented) {
+    return _price.getCharge(daysRented);
   }
   
   public int getFrequentRenterPoints(int daysRented){
