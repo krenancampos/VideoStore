@@ -25,7 +25,6 @@ public class Movie {
   }
   
   public double getCharge(int daysRented){
-       //Adicionar o trecho de código extraído.
     double thisAmount = 0;
     switch (_priceCode) {
       case Movie.REGULAR:
@@ -43,5 +42,11 @@ public class Movie {
         break;
     }
     return thisAmount;
+  }
+  
+  public int getFrequentRenterPoints(int daysRented){
+    if ((_priceCode == Movie.NEW_RELEASE) &&
+         daysRented > 1) return 2;
+    return 1;
   }
 }
